@@ -3,6 +3,7 @@ import 'package:course_money_record/config/app_color.dart';
 import 'package:course_money_record/presentation/controller/c_user.dart';
 import 'package:course_money_record/presentation/page/components/appbar.dart';
 import 'package:course_money_record/presentation/page/components/chartpengeluaran.dart';
+import 'package:course_money_record/presentation/page/components/enddrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -20,7 +21,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        endDrawer: Drawer(),
+        endDrawer: Drawer(
+          child: EndDrawerComponent(),
+        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

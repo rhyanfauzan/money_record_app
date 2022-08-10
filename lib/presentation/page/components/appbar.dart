@@ -33,9 +33,21 @@ class _AppBarComponentState extends State<AppBarComponent> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Hi, '),
+                Text(
+                  'Hi, ',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
                 Obx(() {
-                  return Text(cUser.data.name ?? '');
+                  return Text(
+                    cUser.data.name ?? '',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  );
                 })
               ],
             ),
