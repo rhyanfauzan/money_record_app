@@ -1,10 +1,14 @@
 import 'package:course_money_record/config/app_color.dart';
+import 'package:course_money_record/config/app_format.dart';
 import 'package:d_view/d_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:d_chart/d_chart.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+
+import '../../controller/c_home.dart';
 
 class ChartComponent extends StatefulWidget {
   const ChartComponent({Key? key}) : super(key: key);
@@ -14,6 +18,8 @@ class ChartComponent extends StatefulWidget {
 }
 
 class _ChartComponentState extends State<ChartComponent> {
+  final cHome = Get.put(CHome());
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -152,18 +158,22 @@ class _ChartComponentState extends State<ChartComponent> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Rp. 500.000',
-                    style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
+                  Obx(() {
+                    return Text(
+                      AppFormat.currency(cHome.today.toString()),
+                      style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    );
+                  }),
                   DView.spaceHeight(6),
-                  Text(
-                    '+20% dari kemarin',
-                    style: TextStyle(fontSize: 10, color: Colors.white),
-                  )
+                  Obx(() {
+                    return Text(
+                      cHome.todayPercent,
+                      style: TextStyle(fontSize: 10, color: Colors.white),
+                    );
+                  })
                 ],
               )),
           Padding(

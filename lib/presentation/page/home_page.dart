@@ -1,5 +1,6 @@
 import 'package:course_money_record/config/app_asset.dart';
 import 'package:course_money_record/config/app_color.dart';
+import 'package:course_money_record/presentation/controller/c_home.dart';
 import 'package:course_money_record/presentation/controller/c_user.dart';
 import 'package:course_money_record/presentation/page/components/appbar.dart';
 import 'package:course_money_record/presentation/page/components/chartpengeluaran.dart';
@@ -18,6 +19,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final cUser = Get.put(CUser());
+  final cHome = Get.put(CHome());
+
+  @override
+  void initState() {
+    cHome.getAnalysis(cUser.data.idUser!);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
