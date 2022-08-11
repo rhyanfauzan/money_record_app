@@ -24,7 +24,7 @@ class _AppBarComponentState extends State<AppBarComponent> {
         children: [
           Image.asset(
             AppAsset.profile,
-            width: 22,
+            width: 40,
           ),
           SizedBox(
             width: 10,

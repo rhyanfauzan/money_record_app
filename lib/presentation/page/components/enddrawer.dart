@@ -35,7 +35,7 @@ class _EndDrawerComponentState extends State<EndDrawerComponent> {
                   children: [
                     Image.asset(
                       AppAsset.profile,
-                      width: 22,
+                      width: 32,
                     ),
                     SizedBox(
                       width: 10,
